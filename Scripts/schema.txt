@@ -1,0 +1,23 @@
+create table Post
+(
+    PostId      int identity(1,1) primary key,
+    Html        text,
+    VisitCount  int not null default(0),
+    Status      tinyint not null,
+    CreateDate  datetime not null default(getdate()),
+    CreateBy    int not null,
+    UpdateDate  datetime,
+    UpdateBy    int
+);
+
+create table Tag
+(
+    TagId   int identity(1,1) primary key,
+    Name    varchar(50) not null unique
+);
+
+create table PostTag
+(
+    PostId  int not null,
+    TagId   int not null
+);
